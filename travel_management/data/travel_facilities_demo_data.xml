@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="menu_travel_facilities_demo1" model="travel.facilities">
+            <field name="facilities">AC</field>
+        </record>
+        <record id="menu_travel_facilities_demo2" model="travel.facilities">
+            <field name="facilities">TV</field>
+        </record>
+        <record id="menu_travel_facilities_demo3" model="travel.facilities">
+            <field name="facilities">Sound system</field>
+        </record>
+        <record id="menu_travel_facilities_demo4" model="travel.facilities">
+            <field name="facilities">Laser beam</field>
+        </record>
+    </data>
+</odoo>

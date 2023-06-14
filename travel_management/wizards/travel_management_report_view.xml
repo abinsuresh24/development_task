@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    form view for the wizard-->
+    <record id="travel_management_report_wizard_view_form" model="ir.ui.view">
+        <field name="name">travel.management.report.wizard.view.form</field>
+        <field name="model">travel.management.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="create_pdf" string="PRINT PDF"
+                                type="object" class="oe_highlight"/>
+                        <button name="canceled_order" string="Cancel order"
+                                special="cancel" class="oe_highlight"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="travel_management_report_action" model="ir.actions.act_window">
+        <field name="name">travel.management.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">travel.management.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="travel_management_report_wizard_view_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_travel_management_report"
+              name="Report" parent="menu_root"
+              sequence="3">
+    </menuitem>
+    <menuitem id="menu_travel_management_report_submenu"
+              name="Travel management report"
+              parent="menu_travel_management_report"
+              action="travel_management_report_action"
+              sequence="0"/>
+</odoo>

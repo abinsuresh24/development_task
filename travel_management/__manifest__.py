@@ -1,0 +1,32 @@
+{
+    'name': "Travel Management",
+    'version': '16.0.1.0.0',
+    'author': "Cybrosys_Technologies",
+    'category': 'Sales',
+    'summary': 'Travel Management Application',
+    'description': """
+     Details about travel management and packages details
+    """,
+    'depends': ['base', 'mail', 'account'],
+    'data': [
+        'security/travel_management_security.xml',
+        'security/ir.model.access.csv',
+        'data/sequence.xml',
+        'data/service_types_demo_data.xml',
+        'data/travel_facilities_demo_data.xml',
+        'data/schedule_expiry_date.xml',
+        'wizards/travel_management_report_view.xml',
+        'views/travel_booking_view.xml',
+        'views/travel_service_view.xml',
+        'views/travel_facilities_view.xml',
+        'views/travel_vehicle_view.xml',
+        'views/vehicle_charges_view.xml',
+        'views/tour_package_view.xml',
+        'reports/travel_booking_template_report.xml',
+        'reports/report.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+    'license': 'AGPL-3',
+}

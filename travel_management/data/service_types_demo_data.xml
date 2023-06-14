@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="menu_travel_service_types_demo" model="travel.service">
+            <field name="service_name">Tour packages</field>
+            <field name="expiration_period">3</field>
+            <field name="period_states">days</field>
+        </record>
+    </data>
+</odoo>

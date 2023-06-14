@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="travel_service_view_form" model="ir.ui.view">
+        <field name="name">Service types</field>
+        <field name="model">travel.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="service_name" class="oe_edit_only"/>
+                        <h1><field name="service_name" string="services" placeholder="e.g Tour packages"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="expiration_period"/>
+                        </group>
+                        <group>
+                            <field name="period_states"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="travel_service_view_tree" model="ir.ui.view">
+        <field name="name">Service types</field>
+        <field name="model">travel.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="service_name"/>
+                <field name="expiration_period"/>
+            </tree>
+        </field>
+    </record>
+    <record id="travel_service_action" model="ir.actions.act_window">
+        <field name="name">Service</field>
+        <field name="res_model">travel.service</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_configuration" name="Configuration" parent="menu_root"
+              sequence="10"/>
+    <menuitem id="menu_travel_service_types" name="Service types"
+              parent="menu_configuration" action="travel_service_action">
+    </menuitem>
+</odoo>
