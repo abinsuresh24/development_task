@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 {
     'name': "Travel Management",
     'version': '16.0.1.0.0',
@@ -7,7 +8,7 @@
     'description': """
      Details about travel management and packages details
     """,
-    'depends': ['base', 'mail', 'account'],
+    'depends': ['base', 'mail', 'account','contacts'],
     'data': [
         'security/travel_management_security.xml',
         'security/ir.model.access.csv',
@@ -22,7 +23,7 @@
         'views/travel_vehicle_view.xml',
         'views/vehicle_charges_view.xml',
         'views/tour_package_view.xml',
-        'reports/travel_booking_template_report.xml',
+        'reports/travel_management_template_reports.xml',
         'reports/report.xml',
     ],
     'installable': True,

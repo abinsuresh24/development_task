@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="action_report_travel_management" model="ir.actions.report">
+<!--    PDF report action for travel management-->
+    <record id="action_report_travels_management" model="ir.actions.report">
         <field name="name">Travel management</field>
         <field name="model">tour.package</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">travel_management.report_travel_management</field>
         <field name="report_file">travel_management.report_travel_management</field>
-        <field name="binding_model_id" ref="model_travel_booking"/>
+        <field name="binding_model_id" ref="model_tour_package"/>
         <field name="binding_type">report</field>
     </record>
 </odoo>

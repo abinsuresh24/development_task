@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import travel_booking
 from . import travel_service
 from . import travel_facilities

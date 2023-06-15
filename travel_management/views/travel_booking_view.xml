@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+<!--    Travel booking form view-->
     <record id="travel_booking_view_form" model="ir.ui.view">
-        <field name="name">Booking details</field>
+        <field name="name">travel.booking.view.form</field>
         <field name="model">travel.booking</field>
         <field name="arch" type="xml">
             <form>
@@ -62,8 +63,9 @@
             </form>
         </field>
     </record>
+    <!--    Travel booking tree view-->
     <record id="travel_booking_view_tree" model="ir.ui.view">
-        <field name="name">booking</field>
+        <field name="name">travel.booking.view.tree</field>
         <field name="model">travel.booking</field>
         <field name="arch" type="xml">
             <tree>
@@ -78,8 +80,9 @@
             </tree>
         </field>
     </record>
+    <!--    Travel booking search view-->
     <record id="travel_booking_view_search" model="ir.ui.view">
-        <field name="name">search</field>
+        <field name="name">travel.booking.view.search</field>
         <field name="model">travel.booking</field>
         <field name="arch" type="xml">
             <search>
@@ -104,6 +107,7 @@
             </search>
         </field>
     </record>
+    <!--    Travel booking view action -->
     <record id="travel_booking_action" model="ir.actions.act_window">
         <field name="name">Booking</field>
         <field name="res_model">travel.booking</field>

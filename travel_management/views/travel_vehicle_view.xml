@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+<!--    Travel vehicle view form-->
     <record id="travel_vehicle_view_form" model="ir.ui.view">
-        <field name="name">Travel vehicle</field>
+        <field name="name">travel.vehicle.view.form</field>
         <field name="model">travel.vehicle</field>
         <field name="arch" type="xml">
             <form>
@@ -48,8 +49,9 @@
             </form>
         </field>
     </record>
+    <!--    Travel vehicle view tree-->
     <record id="travel_vehicle_view_tree" model="ir.ui.view">
-        <field name="name">Travel vehicle</field>
+        <field name="name">travel.vehicle.view.tree</field>
         <field name="model">travel.vehicle</field>
         <field name="arch" type="xml">
             <tree>
@@ -60,8 +62,9 @@
             </tree>
         </field>
     </record>
+    <!--    Travel vehicle view calendar-->
     <record id="travel_vehicle_view_calendar" model="ir.ui.view">
-        <field name="name">travel.vehicle.calendar</field>
+        <field name="name">travel.vehicle.view.calendar</field>
         <field name="model">travel.vehicle</field>
         <field name="arch" type="xml">
             <calendar string="Travel vehicles" date_start="start_date"
@@ -74,6 +77,7 @@
             </calendar>
         </field>
     </record>
+    <!--    Travel vehicle view action-->
     <record id="travel_vehicle_action" model="ir.actions.act_window">
         <field name="name">Vehicles</field>
         <field name="res_model">travel.vehicle</field>
