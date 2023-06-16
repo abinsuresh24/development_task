@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="menu_travel_book_website_form" model="website.menu">
+        <field name="name">Travel Booking</field>
+        <field name="url">/travel_booking_web</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">3</field>
+    </record>
+    <template id="travel_booking" name="Travel Booking">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <label>haii</label>
+                        <form role="form" action="/create/travel_booking"
+                              method="POST">
+                            <input type="hidden" name="csrf_token"
+                                   t-att-value="request.csrf_token()"/>
+                            <div class="form-group">
+                                <label for="customer_id" class="control-label">Customer</label>
+                                <input type="text" name="customer_id"
+                                       t-att-value="customer_id"
+                                       id="customer_id" class="form-control"
+                                       placeholder="e.g Azure Interior"
+                                       required="required"/>
+                            </div>
+
+<!--                            <div class="form-group">-->
+<!--                                <label for="address_id" class="control-label">-->
+<!--                                    Address-->
+<!--                                </label>-->
+<!--                                <input type="text" name="address_id"-->
+<!--                                       t-att-value="address_id"-->
+<!--                                       id="address_id" class="form-control"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="passengers" class="control-label">-->
+<!--                                    Passengers-->
+<!--                                </label>-->
+<!--                                <input type="text" name="passengers"-->
+<!--                                       t-att-value="passengers"-->
+<!--                                       id="passengers" class="form-control"-->
+<!--                                       required="required"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="source_country_id"-->
+<!--                                       class="control-label">-->
+<!--                                    Source Country-->
+<!--                                </label>-->
+<!--                                <input type="text" name="source_country_id"-->
+<!--                                       t-att-value="source_country_id"-->
+<!--                                       id="source_country_id"-->
+<!--                                       class="form-control"-->
+<!--                                       required="required"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="destination_country_id"-->
+<!--                                       class="control-label">-->
+<!--                                    Destination Country-->
+<!--                                </label>-->
+<!--                                <input type="text"-->
+<!--                                       name="destination_country_id"-->
+<!--                                       t-att-value="destination_country_id"-->
+<!--                                       id="destination_country_id"-->
+<!--                                       class="form-control"-->
+<!--                                       required="required"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="service" class="control-label">-->
+<!--                                    Service-->
+<!--                                </label>-->
+<!--                                <input type="text" name="service"-->
+<!--                                       t-att-value="service"-->
+<!--                                       id="service" class="form-control"-->
+<!--                                       placeholder="e.g Flight"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="field_service_id"-->
+<!--                                       class="control-label">-->
+<!--                                    Field Service-->
+<!--                                </label>-->
+<!--                                <input type="text" name="field_service_id"-->
+<!--                                       t-att-value="field_service_id"-->
+<!--                                       id="field_service_id"-->
+<!--                                       class="form-control"/>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="travel_date" class="control-label">-->
+<!--                                    Travel Date-->
+<!--                                </label>-->
+<!--                                <input type="text" name="travel_date"-->
+<!--                                       t-att-value="travel_date"-->
+<!--                                       id="travel_date" class="form-control"-->
+<!--                                       required="required"/>-->
+<!--                            </div>-->
+<!--                            <div class="clearfix_oe_login_buttons">-->
+<!--                                <button type="submit"-->
+<!--                                        class="btn btn-primary pull-left">SUBMIT</button>-->
+<!--                            </div>-->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+<!--    <record id="booking_success" model="website.page">-->
+<!--            <field name="name">booking.success</field>-->
+<!--            <field name="type">qweb</field>-->
+<!--            <field name="url">/booking_success</field>-->
+<!--        </record>-->
+</odoo>

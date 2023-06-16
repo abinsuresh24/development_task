@@ -8,7 +8,7 @@
     'description': """
      Details about travel management and packages details
     """,
-    'depends': ['base', 'mail', 'account','contacts'],
+    'depends': ['base', 'mail', 'account', 'contacts', 'website'],
     'data': [
         'security/travel_management_security.xml',
         'security/ir.model.access.csv',
@@ -23,11 +23,17 @@
         'views/travel_vehicle_view.xml',
         'views/vehicle_charges_view.xml',
         'views/tour_package_view.xml',
+        'views/website_form_view.xml',
         'reports/travel_management_template_reports.xml',
         'reports/report.xml',
     ],
     'installable': True,
     'auto_install': False,
     'application': True,
+    'assets': {
+        'web.assets_backend': [
+            'travel_management/static/src/js/action_manager.js',
+        ],
+    },
     'license': 'AGPL-3',
 }

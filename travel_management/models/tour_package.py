@@ -46,7 +46,11 @@ class TourPackage(models.Model):
                                           'service_charges1_id',
                                           string="Service charges")
     package_estimation_amount = fields.Float(string="Estimation amount",
-                                             help="Estimated amount of the travel package")
+                                             help="Estimated amount of the "
+                                                  "travel package")
+    company_id = fields.Many2one('res.company', string="Company",
+                                 default=lambda self: self.env.company)
+    user_id=fields.Many2one('res.users',string='User',default=lambda self: self.env.user)
 
     def tour_package_confirm(self):
         """Declaring function for changing the state to confirmed and also

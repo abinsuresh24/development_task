@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <!--    Travel management report wizard view form-->
-    <record id="travel_management_report_wizard_view_form" model="ir.ui.view">
+    <record id="travel_management_report_view_form" model="ir.ui.view">
         <field name="name">travel.management.report.wizard.view.form</field>
         <field name="model">travel.management.report</field>
         <field name="arch" type="xml">
@@ -10,6 +10,7 @@
                     <group>
                         <group>
                             <field name="partner_id"/>
+                            <field name="company_id"/>
                         </group>
                         <group>
                             <field name="date_from"/>
@@ -18,6 +19,8 @@
                     </group>
                     <footer>
                         <button name="create_pdf" string="PRINT PDF"
+                                type="object" class="oe_highlight"/>
+                        <button name="print_xlsx" string="PRINT XLSX"
                                 type="object" class="oe_highlight"/>
                         <button name="canceled_order" string="Cancel order"
                                 special="cancel" class="oe_highlight"/>
@@ -28,20 +31,19 @@
     </record>
 <!--    Travel management report action-->
     <record id="travel_management_report_action" model="ir.actions.act_window">
-        <field name="name">travel.management.report</field>
+        <field name="name">Travel Management Report</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">travel.management.report</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="travel_management_report_wizard_view_form"/>
+        <field name="view_id" ref="travel_management_report_view_form"/>
         <field name="target">new</field>
     </record>
 <!--    Menu for travel management report -->
     <menuitem id="menu_travels_management_reports"
-              name="Reports" parent="menu_root"
-              sequence="3">
-    </menuitem>
+              name="Travel Management Report" parent="menu_root"
+              sequence="3"/>
     <menuitem id="menu_travel_management_reports_submenu"
-              name="Travel management report"
+              name="Travel Management Report"
               parent="menu_travels_management_reports"
               action="travel_management_report_action"
               sequence="0"/>
