@@ -16,7 +16,7 @@
         'data/service_types_demo_data.xml',
         'data/travel_facilities_demo_data.xml',
         'data/schedule_expiry_date.xml',
-        'wizards/travel_management_report_view.xml',
+        # 'wizards/travel_management_report_view.xml',
         'views/travel_booking_view.xml',
         'views/travel_service_view.xml',
         'views/travel_facilities_view.xml',

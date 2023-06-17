@@ -16,8 +16,7 @@ class TravelBooking(models.Model):
                               help="Booking reference for each booking",
                               readonly=True,
                               tracking=True, default=lambda self: _('New'))
-    customer_id = fields.Many2one('res.partner', string="Customer", help="Name",
-                                  required=True)
+    customer_id = fields.Many2one('res.partner', string="Customer", help="Name")
     address_id = fields.Char(related='customer_id.contact_address')
     passengers = fields.Integer(string="Passengers", help="No.of passengers",
                                 default=1)

@@ -4,108 +4,174 @@
         <field name="name">Travel Booking</field>
         <field name="url">/travel_booking_web</field>
         <field name="parent_id" ref="website.main_menu"/>
-        <field name="sequence">3</field>
+        <field name="sequence">10</field>
     </record>
-    <template id="travel_booking" name="Travel Booking">
+    <template id="travel_booking_website" name="Travel Booking">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="oe_structure">
                     <div class="container">
-                        <label>haii</label>
                         <form role="form" action="/create/travel_booking"
                               method="POST">
                             <input type="hidden" name="csrf_token"
                                    t-att-value="request.csrf_token()"/>
                             <div class="form-group">
-                                <label for="customer_id" class="control-label">Customer</label>
-                                <input type="text" name="customer_id"
-                                       t-att-value="customer_id"
-                                       id="customer_id" class="form-control"
-                                       placeholder="e.g Azure Interior"
+                                <label for="customer_id" class="control-label">
+                                    Customer
+                                </label>
+                                <select name="customer_id"
+                                        class="form-control link-style"
+                                        required="required">
+                                    <t t-foreach="customer_id" t-as="rec">
+                                        <option t-esc="rec.name"
+                                                t-att-value="rec.id"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="address_id" class="control-label">
+                                    Address
+                                </label>
+                                <input type="text" name="address_id"
+                                       t-att-value="address_id"
+                                       id="address_id" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="passengers" class="control-label">
+                                    Passengers
+                                </label>
+                                <input type="text" name="passengers"
+                                       t-att-value="passengers"
+                                       id="passengers" class="form-control"
                                        required="required"/>
                             </div>
-
-<!--                            <div class="form-group">-->
-<!--                                <label for="address_id" class="control-label">-->
-<!--                                    Address-->
-<!--                                </label>-->
-<!--                                <input type="text" name="address_id"-->
-<!--                                       t-att-value="address_id"-->
-<!--                                       id="address_id" class="form-control"/>-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="passengers" class="control-label">-->
-<!--                                    Passengers-->
-<!--                                </label>-->
-<!--                                <input type="text" name="passengers"-->
-<!--                                       t-att-value="passengers"-->
-<!--                                       id="passengers" class="form-control"-->
-<!--                                       required="required"/>-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="source_country_id"-->
-<!--                                       class="control-label">-->
-<!--                                    Source Country-->
-<!--                                </label>-->
-<!--                                <input type="text" name="source_country_id"-->
-<!--                                       t-att-value="source_country_id"-->
-<!--                                       id="source_country_id"-->
-<!--                                       class="form-control"-->
-<!--                                       required="required"/>-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="destination_country_id"-->
-<!--                                       class="control-label">-->
-<!--                                    Destination Country-->
-<!--                                </label>-->
-<!--                                <input type="text"-->
-<!--                                       name="destination_country_id"-->
-<!--                                       t-att-value="destination_country_id"-->
-<!--                                       id="destination_country_id"-->
-<!--                                       class="form-control"-->
-<!--                                       required="required"/>-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="service" class="control-label">-->
-<!--                                    Service-->
-<!--                                </label>-->
-<!--                                <input type="text" name="service"-->
-<!--                                       t-att-value="service"-->
-<!--                                       id="service" class="form-control"-->
-<!--                                       placeholder="e.g Flight"/>-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="field_service_id"-->
-<!--                                       class="control-label">-->
-<!--                                    Field Service-->
-<!--                                </label>-->
-<!--                                <input type="text" name="field_service_id"-->
-<!--                                       t-att-value="field_service_id"-->
-<!--                                       id="field_service_id"-->
-<!--                                       class="form-control"/>-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="travel_date" class="control-label">-->
-<!--                                    Travel Date-->
-<!--                                </label>-->
-<!--                                <input type="text" name="travel_date"-->
-<!--                                       t-att-value="travel_date"-->
-<!--                                       id="travel_date" class="form-control"-->
-<!--                                       required="required"/>-->
-<!--                            </div>-->
-<!--                            <div class="clearfix_oe_login_buttons">-->
-<!--                                <button type="submit"-->
-<!--                                        class="btn btn-primary pull-left">SUBMIT</button>-->
-<!--                            </div>-->
+                            <div class="form-group">
+                                <label for="source_country_id"
+                                       class="control-label">
+                                    Source Country
+                                </label>
+                                <select name="source_country_id"
+                                        id="source_country_id"
+                                        class="form-control link-style"
+                                        required="required">
+                                    <t t-foreach="source_country_id" t-as="rec">
+                                        <option t-esc="rec.name"
+                                                t-att-value="rec.id"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="destination_country_id"
+                                       class="control-label">
+                                    Destination Country
+                                </label>
+                                <select type="text"
+                                        name="destination_country_id"
+                                        id="destination_country_id"
+                                        class="form-control"
+                                        required="required">
+                                    <t t-foreach="destination_country_id"
+                                       t-as="rec">
+                                        <option t-esc="rec.name"
+                                                t-att-value="rec.id"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="service" class="control-label">
+                                    Service
+                                </label>
+                                <select type="text" name="service"
+                                        t-att-value="service"
+                                        id="service" class="form-control"
+                                        placeholder="e.g Flight">
+                                    <option value="flight">Flight</option>
+                                    <option value="train">Train</option>
+                                    <option value="bus">Bus</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="field_service_id"
+                                       class="control-label">
+                                    Field Service
+                                </label>
+                                <select name="field_service_id"
+                                        id="field_service_id"
+                                        class="form-control">
+                                    <t t-foreach="field_service_id" t-as="rec">
+                                        <option t-esc="rec.service_name"
+                                                t-att-value="rec.id"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="travel_date" class="control-label">
+                                    Travel Date
+                                </label>
+                                <input type="date" name="travel_date"
+                                       t-att-value="travel_date"
+                                       id="travel_date" class="form-control"
+                                       required="required"/>
+                            </div>
+                            <br></br>
+                            <div class="clearfix_oe_login_buttons">
+                                <button type="submit"
+                                        class="btn btn-primary pull-left">SUBMIT
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </t>
     </template>
-<!--    <record id="booking_success" model="website.page">-->
-<!--            <field name="name">booking.success</field>-->
-<!--            <field name="type">qweb</field>-->
-<!--            <field name="url">/booking_success</field>-->
-<!--        </record>-->
+    <record id="booking_success" model="website.page">
+        <field name="name">booking.success</field>
+        <field name="type">qweb</field>
+        <field name="url">/booking_success</field>
+        <field name="website_published">True</field>
+        <field name="key">travel_management.booking_success</field>
+        <field name="arch" type="xml">
+            <t name="Thanks" t-name="travel_management.booking_success">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="container">
+                            <h1>Booking Success</h1>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="alert alert-success"
+                                         role="status">
+                                        Your booking created successfully
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
 </odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,11 +40,28 @@ class XLSXReportController(http.Controller):
 
 
 class TravelBooking(http.Controller):
-    @http.route('/travel_booking_web', type='http', auth='public', methods=['POST'],
+    @http.route('/travel_booking_web', type='http', auth='public', website=True)
+    def travel_booking_web(self):
+        customer = request.env['res.partner'].sudo().search([])
+        source_country = request.env['res.country'].sudo().search([])
+        destination_country = request.env['res.country'].sudo().search([])
+        field_service = request.env['travel.service'].sudo().search([])
+        # values = {
+        #
+        #     'customer_id': customer,
+        #     'destination_country_id': destination_country,
+        #     'source_country_id': source_country,
+        #     'field_service_id': field_service,
+        # }
+        # print(values,'1111111')
+        return http.request.render("travel_management.travel_booking_website",
+                                   {'customer_id': customer,
+                                    'destination_country_id': destination_country,
+                                    'source_country_id': source_country,
+                                    'field_service_id': field_service})
+
+    @http.route('/create/travel_booking', type='http', auth='public',
                 website=True)
-    def travel_booking_web(self, **kw):
-        return http.request.render("travel_management.travel_booking", {})
-    # @http.route('/create/travel_booking', type='http', auth='public', methods=['POST'],
-    #             website=True)
-    # def travel_booking(self, **kw):
-    #     request.env['travel.booking'].sudo().create(kw)
+    def create_travel_booking(self, **kw):
+        request.env['travel.booking'].sudo().create(kw)
+        return request.render("travel_management.booking_success", {})

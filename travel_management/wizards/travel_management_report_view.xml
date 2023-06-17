@@ -29,6 +29,15 @@
             </form>
         </field>
     </record>
+    <!--    Menu for travel management report -->
+    <menuitem id="menu_travel_management_reports_submenu"
+              name="Travel Management Report"
+              parent="menu_travels_management_reports"
+              action="travel_management_report_action"
+              sequence="0"/>
+    <menuitem id="menu_travels_management_reports"
+              name="Travel Management Report" parent="menu_root"
+              sequence="3"/>
 <!--    Travel management report action-->
     <record id="travel_management_report_action" model="ir.actions.act_window">
         <field name="name">Travel Management Report</field>
@@ -38,13 +47,4 @@
         <field name="view_id" ref="travel_management_report_view_form"/>
         <field name="target">new</field>
     </record>
-<!--    Menu for travel management report -->
-    <menuitem id="menu_travels_management_reports"
-              name="Travel Management Report" parent="menu_root"
-              sequence="3"/>
-    <menuitem id="menu_travel_management_reports_submenu"
-              name="Travel Management Report"
-              parent="menu_travels_management_reports"
-              action="travel_management_report_action"
-              sequence="0"/>
 </odoo>
