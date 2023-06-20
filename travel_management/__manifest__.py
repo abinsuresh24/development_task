@@ -16,14 +16,14 @@
         'data/service_types_demo_data.xml',
         'data/travel_facilities_demo_data.xml',
         'data/schedule_expiry_date.xml',
-        # 'wizards/travel_management_report_view.xml',
         'views/travel_booking_view.xml',
         'views/travel_service_view.xml',
         'views/travel_facilities_view.xml',
         'views/travel_vehicle_view.xml',
         'views/vehicle_charges_view.xml',
         'views/tour_package_view.xml',
-        'views/website_form_view.xml',
+        'views/website_booking_form_view.xml',
+        'wizards/travel_management_report_view.xml',
         'reports/travel_management_template_reports.xml',
         'reports/report.xml',
     ],
@@ -32,8 +32,7 @@
     'application': True,
     'assets': {
         'web.assets_backend': [
-            'travel_management/static/src/js/action_manager.js',
-        ],
+            'travel_management/static/src/js/action_manager.js']
     },
     'license': 'AGPL-3',
 }

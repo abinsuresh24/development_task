@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+<!--    Menu for Travel booking in website module-->
     <record id="menu_travel_book_website_form" model="website.menu">
         <field name="name">Travel Booking</field>
         <field name="url">/travel_booking_web</field>
         <field name="parent_id" ref="website.main_menu"/>
         <field name="sequence">10</field>
     </record>
+<!--    Template for the Travel booking menu-->
     <template id="travel_booking_website" name="Travel Booking">
         <t t-call="website.layout">
             <div id="wrap">
@@ -17,11 +19,13 @@
                                    t-att-value="request.csrf_token()"/>
                             <div class="form-group">
                                 <label for="customer_id" class="control-label">
-                                    Customer
+                                    Customer :
                                 </label>
                                 <select name="customer_id"
                                         class="form-control link-style"
+                                        style="width: 400px; height: 40px;"
                                         required="required">
+                                    <option value="0"/>
                                     <t t-foreach="customer_id" t-as="rec">
                                         <option t-esc="rec.name"
                                                 t-att-value="rec.id"/>
@@ -29,31 +33,25 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="address_id" class="control-label">
-                                    Address
-                                </label>
-                                <input type="text" name="address_id"
-                                       t-att-value="address_id"
-                                       id="address_id" class="form-control"/>
-                            </div>
-                            <div class="form-group">
                                 <label for="passengers" class="control-label">
-                                    Passengers
+                                    Passengers :
                                 </label>
                                 <input type="text" name="passengers"
                                        t-att-value="passengers"
+                                       style="width: 400px; height: 40px;"
                                        id="passengers" class="form-control"
                                        required="required"/>
                             </div>
                             <div class="form-group">
                                 <label for="source_country_id"
                                        class="control-label">
-                                    Source Country
+                                    Source Country :
                                 </label>
                                 <select name="source_country_id"
                                         id="source_country_id"
-                                        class="form-control link-style"
-                                        required="required">
+                                        style="width: 400px; height: 40px;"
+                                        class="form-control link-style">
+                                    <option value="0"/>
                                     <t t-foreach="source_country_id" t-as="rec">
                                         <option t-esc="rec.name"
                                                 t-att-value="rec.id"/>
@@ -63,13 +61,15 @@
                             <div class="form-group">
                                 <label for="destination_country_id"
                                        class="control-label">
-                                    Destination Country
+                                    Destination Country :
                                 </label>
                                 <select type="text"
                                         name="destination_country_id"
                                         id="destination_country_id"
                                         class="form-control"
+                                        style="width: 400px; height: 40px;"
                                         required="required">
+                                    <option value="0"/>
                                     <t t-foreach="destination_country_id"
                                        t-as="rec">
                                         <option t-esc="rec.name"
@@ -79,12 +79,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="service" class="control-label">
-                                    Service
+                                    Service :
                                 </label>
                                 <select type="text" name="service"
                                         t-att-value="service"
+                                        style="width: 400px; height: 40px;"
                                         id="service" class="form-control"
                                         placeholder="e.g Flight">
+                                    <option value="0"/>
                                     <option value="flight">Flight</option>
                                     <option value="train">Train</option>
                                     <option value="bus">Bus</option>
@@ -93,11 +95,13 @@
                             <div class="form-group">
                                 <label for="field_service_id"
                                        class="control-label">
-                                    Field Service
+                                    Field Service :
                                 </label>
                                 <select name="field_service_id"
                                         id="field_service_id"
+                                        style="width: 400px; height: 40px;"
                                         class="form-control">
+                                    <option value="0"/>
                                     <t t-foreach="field_service_id" t-as="rec">
                                         <option t-esc="rec.service_name"
                                                 t-att-value="rec.id"/>
@@ -106,10 +110,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="travel_date" class="control-label">
-                                    Travel Date
+                                    Travel Date :
                                 </label>
                                 <input type="date" name="travel_date"
                                        t-att-value="travel_date"
+                                       style="width: 400px; height: 40px;"
                                        id="travel_date" class="form-control"
                                        required="required"/>
                             </div>
@@ -119,12 +124,14 @@
                                         class="btn btn-primary pull-left">SUBMIT
                                 </button>
                             </div>
+                            <br></br>
                         </form>
                     </div>
                 </div>
             </div>
         </t>
     </template>
+<!--    Booking success showing page after booking created-->
     <record id="booking_success" model="website.page">
         <field name="name">booking.success</field>
         <field name="type">qweb</field>
@@ -151,27 +158,101 @@
             </t>
         </field>
     </record>
+<!--   Menu for Customer creation in website-->
+    <record id="menu_create_customer_website_form" model="website.menu">
+        <field name="name">Create customer</field>
+        <field name="url">/create_customer</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">50</field>
+    </record>
+<!--    Template for the customer creation menu-->
+    <template id="create_customer_website" name="Create customer">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <form role="form" action="/create/create_customer"
+                              method="POST">
+                            <input type="hidden" name="csrf_token"
+                                   t-att-value="request.csrf_token()"/>
+                            <div class="form-group">
+                                <label for="customer_id" class="control-label">
+                                    Customer :
+                                </label>
+                                <input type="text" name="customer_id"
+                                       t-att-value="display_name"
+                                       style="width: 400px; height: 40px;"
+                                       id="customer_id" class="form-control"
+                                       required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="control-label">
+                                    Address :
+                                </label>
+                                <input type="text" name="address"
+                                       t-att-value="contact_address"
+                                       style="width: 400px; height: 40px;"
+                                       id="address" class="form-control"
+                                       required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="control-label">
+                                    Phone :
+                                </label>
+                                <input type="text" name="phone"
+                                       t-att-value="phone"
+                                       style="width: 400px; height: 40px;"
+                                       id="phone" class="form-control"
+                                       required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="control-label">
+                                    Email :
+                                </label>
+                                <input type="text" name="email"
+                                       t-att-value="email"
+                                       style="width: 400px; height: 40px;"
+                                       id="email" class="form-control"
+                                       required="required"/>
+                            </div>
+                            <br></br>
+                            <div class="clearfix_oe_login_buttons">
+                                <button type="submit"
+                                        class="btn btn-primary pull-left">SUBMIT
+                                </button>
+                            </div>
+                            <br></br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+<!--    Customer creation success page after creating a customer-->
+    <record id="customer_success" model="website.page">
+        <field name="name">customer.success</field>
+        <field name="type">qweb</field>
+        <field name="url">/customer_success</field>
+        <field name="website_published">True</field>
+        <field name="key">travel_management.customer_success</field>
+        <field name="arch" type="xml">
+            <t name="Thanks" t-name="travel_management.customer_success">
+                <t t-call="website.layout">
+                    <div id="wrap">
+                        <div class="container">
+                            <h1>Customer created Successfully</h1>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="alert alert-success"
+                                         role="status">
+                                        Thank you for registering
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
 </odoo>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

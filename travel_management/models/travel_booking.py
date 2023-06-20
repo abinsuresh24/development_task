@@ -69,6 +69,7 @@ class TravelBooking(models.Model):
         """Declaring the function for calculating the expiration date"""
         for rec in self:
             exp_period = rec.field_service_id.expiration_period
+            print(exp_period, "11111")
             booking_date = datetime.datetime.strptime(str(rec.booking_date),
                                                       "%Y-%m-%d")
             if rec.field_service_id.period_states == 'days':
@@ -99,7 +100,7 @@ class TravelBooking(models.Model):
 
     def travel_create_invoice(self):
         """Function defined for creating invoice for booking"""
-        if self.service == False:
+        if self.service is False:
             invoice = self.env['account.move'].create(
                 {'move_type': 'out_invoice',
                  'partner_id': self.customer_id.id,
