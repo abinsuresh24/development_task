@@ -14,17 +14,20 @@ class TourPackage(models.Model):
                                   help="Name of the Customer")
     quotation_date = fields.Date(string="Quotation date", help="Quotation date")
     source_country_id = fields.Many2one('res.country', string="Source location",
-                                        help="Starting location of your journey")
+                                        help="Starting location"
+                                             " of your journey")
     destination_country_id = fields.Many2one('res.country',
                                              string="Destination location",
-                                             help="Destination location of your journey")
+                                             help="Destination location "
+                                                  "of your journey")
     start_date = fields.Date(string="Start date",
                              help="Date which your journey starts")
     end_date = fields.Date(string="End date",
                            help="Date which your journey ends")
     number_of_travellers = fields.Integer(string="Number of travellers",
                                           default=1,
-                                          help="Total number of travellers for the travel")
+                                          help="Total number of travellers "
+                                               "for the travel")
     facilities_id = fields.Many2many('travel.facilities', string="Facilities",
                                      help="Facilities that you can specify")
     vehicle_type = fields.Selection(
@@ -50,7 +53,8 @@ class TourPackage(models.Model):
                                                   "travel package")
     company_id = fields.Many2one('res.company', string="Company",
                                  default=lambda self: self.env.company)
-    user_id=fields.Many2one('res.users',string='User',default=lambda self: self.env.user)
+    user_id = fields.Many2one('res.users', string='User',
+                              default=lambda self: self.env.user)
 
     def tour_package_confirm(self):
         """Declaring function for changing the state to confirmed and also

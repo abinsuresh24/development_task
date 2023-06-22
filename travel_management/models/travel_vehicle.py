@@ -18,8 +18,10 @@ class TravelVehicle(models.Model):
          ('others', 'Others')], help="Vehicle types")
     vehicle_name = fields.Char(string="Name", compute="compute_vehicle_name",
                                help="Name of the vehicle Registration number + vehicle type")
-    number_of_seats = fields.Integer(string="Number of seats", default=1, help="Number of seats in the selected vehicle")
-    facilities_ids = fields.Many2many('travel.facilities', string="Facilities", help="facilities in the vehicle")
+    number_of_seats = fields.Integer(string="Number of seats", default=1,
+                                     help="Number of seats in the selected vehicle")
+    facilities_ids = fields.Many2many('travel.facilities', string="Facilities",
+                                      help="facilities in the vehicle")
     travel_service_charges_ids = fields.One2many('travel.charges',
                                                  'service_charges_id',
                                                  string="Service charges")

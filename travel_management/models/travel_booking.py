@@ -45,7 +45,8 @@ class TravelBooking(models.Model):
                                     help="Fees and charges of the travel")
     description = fields.Char(compute="_compute_description")
     company_id = fields.Many2one('res.company', string="Company name",
-                                 help="Company name", default=lambda self: self.env.company)
+                                 help="Company name",
+                                 default=lambda self: self.env.company)
     user_id = fields.Many2one('res.users', 'Current User',
                               default=lambda self: self.env.user)
 
